@@ -1,0 +1,72 @@
+﻿@model BeerDetailViewModel
+
+@{
+    ViewData["Title"] = "BeerDetail";
+}
+<div class="brewerydetailtopbox">
+    <h2 class="title">@Model.ThisBeer.Name</h2>
+    <p class="beerpreview">@Model.ThisBeer.Type</p>
+    <p class="beerpreview">@Model.ThisBeer.ABV% ABV</p>
+    <p class="beerpreview">@Model.ThisBeer.IBU IBU</p>
+    <p class="beerdescription">@Model.ThisBeer.Description</p>
+    <p class="beerdescription hintsof">Hints of @Model.ThisBeer.HintsOf</p>
+    @if (Model.ThisBeer.AverageRating == 0)
+    {
+        <p>No reviews</p>
+    }
+    else
+    {
+        <p>
+            <div class="ratingtext">
+                Average Rating
+            </div>
+            <img class="hopspic" src="~/images/@(Model.ThisBeer.AverageRating)hop.png" />
+        </p>
+    }
+
+</div>
+
+<div class="individuallogincontainer" style="padding-top: 10px;">
+    @if (Model.IsAdminLoggedIn || Model.IsBrewerLoggedIn)
+    {
+        <form asp-controller="Home" asp-action="UpdateBeer">
+            <input asp-for="ThisBeer.ID" type="hidden" value="@Model.ThisBeer.ID" />
+            <input asp-for="ThisBeer.BreweryID" type="hidden" value="@Model.ThisBeer.BreweryID" />
+            <input asp-for="ThisBeer.Name" type="hidden" value="@Model.ThisBeer.Name" />
+            <input asp-for="ThisBeer.ABV" type="hidden" value="@Model.ThisBeer.ABV" />
+            <input asp-for="ThisBeer.IBU" type="hidden" value="@Model.ThisBeer.IBU" />
+            <input asp-for="ThisBeer.Type" type="hidden" value="@Model.ThisBeer.Type" />
+            <input asp-for="ThisBeer.HintsOf" type="hidden" value="@Model.ThisBeer.HintsOf" />
+            <input asp-for="ThisBeer.Description" type="hidden" value="@Model.ThisBeer.Description" />
+            <button type="submit" class="deletebutton">Update Beer</button>
+        </form>
+    }
+</div>
+<div class="titlebar">Reviews</div>
+
+<a asp-controller="Home" asp-action="NewReview" asp-route-beerId="@Model.ThisBeer.ID">
+    <div class="title">Add A Review</div>
+</a>
+
+@if (Model.ThisBeer.Reviews.Count != 0)
+{
+
+    <div class="reviewbox">
+
+        @foreach (Review review in Model.ThisBeer.Reviews)
+        {
+            <div class="singlereview">
+                <p class="username">@review.User</p>
+                <p class="reviewsubject">@review.Subject</p>
+                <p class="reviewtext">@review.BodyText</p>
+                <p style="font-size: 18px; color: #2442ab;text-shadow: 1px 1px #ab81ff;">
+                    Rating:<img class="hopspic" src="~/images/@(review.Rating)hop.png" />
+                </p>
+            </div>
+        }
+    </div>
+}
+
+
+
+

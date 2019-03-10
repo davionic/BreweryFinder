@@ -1,0 +1,44 @@
+﻿@model BreweryListViewModel
+
+@{
+    ViewData["Title"] = "Brewery Finder";
+}
+
+
+<h2 class="title">Breweries</h2>
+
+<div class="container">
+
+    <div class="brewerycontainer">
+        @foreach (Brewery brewery in Model.Breweries)
+        {
+
+            <div class="brewerybox">
+                <a asp-action="BreweryDetail" asp-route-breweryId="@brewery.ID">
+                    <h2><strong>@brewery.Name</strong></h2>
+                </a>
+                <h3 class="breweryaddress">@brewery.Address</h3>
+            </div>
+        }
+    </div>
+</div>
+
+@if (Model.IsAdminLoggedIn)
+{
+    <a asp-controller="Home" asp-action="NewBrewery">
+        <div class="title">Add A Brewery</div>
+    </a>
+}
+
+@if (!Model.IsAdminLoggedIn && !Model.IsBrewerLoggedIn)
+{
+    <a asp-controller="Home" asp-action="Login">
+        <div class="title">Login</div>
+    </a>
+}
+@if (Model.IsAdminLoggedIn || Model.IsBrewerLoggedIn)
+{
+    <a asp-controller="Home" asp-action="UserLogout">
+        <div class="title">Log Out</div>
+    </a>
+}

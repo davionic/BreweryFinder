@@ -1,0 +1,45 @@
+﻿@model NewReviewViewModel
+
+<h4 class="title">New Review</h4>
+<hr />
+<div>
+    <div class="formcontainer">
+        <form asp-action="BeerDetail" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="BeerID" class="form-control inputfield" />
+                <span asp-validation-for="BeerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="User" class="control-label">Username:</label>
+                <input asp-for="User" class="form-control inputfield" />
+                <span asp-validation-for="User" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label">Subject:</label>
+                <input asp-for="Subject" class="form-control inputfield" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BodyText" class="control-label">Review Text:</label>
+                <input asp-for="BodyText" class="form-control inputfield" />
+                <span asp-validation-for="BodyText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <select asp-for="Rating" class="form-control inputfield dropdown" asp-items="NewReviewViewModel.Ratings"></select>
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+
+

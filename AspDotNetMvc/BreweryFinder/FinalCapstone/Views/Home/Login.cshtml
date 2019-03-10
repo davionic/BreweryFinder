@@ -1,0 +1,48 @@
+﻿@model LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2 class="titlebar">Login</h2>
+
+
+<div class="errorthing"></div>
+
+
+<form asp-action="Login" method="post">
+    <div class="centerlogin">
+        <div class="title">Brewery</div>
+
+        <div>
+            <select asp-for="BreweryID" asp-items="LoginViewModel.Breweries" class="inputfield breweryselectbox"></select>
+            <span asp-validation-for="BreweryID"></span>
+        </div>
+
+        <div class="loginlabel">
+            <label asp-for="Username" class="control-label loginwordnexttofield"></label>
+            <input asp-for="Username" class="form-control logininputfield" />
+            <span asp-validation-for="Username" class="text-danger"></span>
+        </div>
+
+        <div class="loginlabel">
+            <label asp-for="Password" class="control-label loginwordnexttofield"></label>
+            <input type="password" asp-for="Password" class="form-control logininputfield" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="loginradios">
+        <input asp-for="IsAdmin" type="radio" value="true"> Admin
+        <input asp-for="IsAdmin" type="radio" value="false" checked> Brewer       
+    </div>
+    
+    <div class="submitdiv">
+        <button class="button button-link submitbutton" type="submit">Login</button>
+    </div>
+    <div class="errorthing">
+        @Html.ValidationMessage("invalid-credentials")
+    </div>
+
+</form>
+

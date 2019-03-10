@@ -1,0 +1,319 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+body {
+    background-image: repeating-radial-gradient(#81b5ff, #a3f8ff 5%, #81b5ff 20%);
+}
+
+.bigbrewerycontainer{
+    width: 800px;
+}
+.brewerycontainer {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 640px;
+    margin: 0 auto;
+}
+.brewerybox {
+    width: 200px;
+    height: 250px;
+    padding: 0px 3px 0px 3px;
+    margin: 5px;
+    background-image: linear-gradient(#d7e8ff, #5ac1ff);
+    box-shadow: inset 0 0 10px #000000;
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+    color: #2442ab;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: impact;
+}
+
+.brewerydetailtopbox {
+    margin-top: 20px;
+    padding: 1px 15px 5px 15px;
+    background: #d7e8ff;
+    box-shadow: inset 0 0 10px #000000;
+    text-align: center;
+}
+
+.titlebar {
+    margin: 20px;
+    padding: 5px 0px 5px 0px;
+    background-image: linear-gradient(#d7e8ff, #5ac1ff);
+    box-shadow: inset 0 0 10px #000000;
+    text-align: center;
+    color: #2442ab;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: impact;
+    border-radius: 3px;
+}
+
+.beerlist {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 640px;
+    margin: 0 auto;
+}
+
+.beer {
+    width: 200px;
+    height: 280px;
+    padding: 3px;
+    margin: 5px;
+    background-image: linear-gradient(#d7e8ff, #5ac1ff);
+    box-shadow: inset 0 0 10px #000000;
+    text-align: center;
+}
+
+.beername {
+    color: #2442ab;
+    font-size: 25px;
+    font-family: impact;
+}
+
+.beerpreview {
+    color: #2442ab;
+    text-shadow: 2px 2px #ab81ff;
+    font-size: 25px;
+    margin-top: 5px;
+}
+.beerdescription {
+    font-size: 20px;
+}
+
+.ratingtext {
+    text-decoration: underline;
+    font-family: Impact;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.hopspic {
+    height: 30%;
+    width: 30%;
+    padding-top: 10px;
+}
+
+.hopspicsmall {
+    height: 70%;
+    width: 70%;
+    padding-top: 10px;
+}
+
+.hintsof {
+    color: #2442ab;
+    text-shadow: 2px 2px #ab81ff;
+}
+
+.reviewbox {
+    margin-top: 20px;
+}
+
+.singlereview {
+    margin: 20px auto 0px auto;
+    padding: 15px 15px 5px 15px;
+    background-image: linear-gradient(#d7e8ff, #5ac1ff);
+    box-shadow: inset 0 0 10px #7925ff;
+    border-radius: 3px;
+    width: 500px
+}
+
+.username {
+    color: #2442ab;
+    text-shadow: 1px 1px #ab81ff;
+    font-size: 25px;
+    font-family: Impact;
+}
+.reviewsubject {
+    color: #2442ab;
+    text-shadow: 1px 1px #ab81ff;
+    font-size: 20px;
+    padding-left: 50px;
+}
+
+.reviewtext {
+    color: #a30039;
+    font-size: 16px;
+    padding-left: 50px;
+}
+
+.ratingtext {
+    color: #2442ab;
+    text-shadow: 1px 1px #ab81ff;
+}
+
+.brewerydeets {
+    color: #a30039;
+    font-size: 16px;
+    text-align: center;
+}
+
+.breweryaddress {
+    color: #2442ab;
+    text-shadow: 1px 1px #ab81ff;
+    font-size: 25px;
+}
+
+.formcontainer {
+    color: #2442ab;
+    text-shadow: 2px 2px #ab81ff;
+    font-size: 25px;
+    margin-top: 5px;
+    text-align: center;
+    margin-top: 20px;
+    padding: 1px 15px 5px 15px;
+    background-image: linear-gradient(#d7e8ff, #5ac1ff);
+    box-shadow: inset 0 0 10px #000000;
+    text-align: center;
+    border-radius: 2px;
+}
+
+.inputfield {
+    text-align: center;
+    background-image: linear-gradient(#ffa4f9, #80c6ff);
+    border-color: red;
+    box-shadow: inset 0 0 10px #000000;
+    font-weight: bold;
+    color: #b4001d;
+}
+
+.dropdown {
+    width: 100px;
+    margin: auto;
+}
+
+.deletebutton {
+    font-size: 16px;
+    margin-bottom: 5px;
+    background-image: linear-gradient(#ffa4f9, #80c6ff);
+
+}
+
+.breweryselect{
+    text-align: center;
+}
+.breweryselectbox{
+    height: 35px;
+    border-radius: 3px;
+    font-family: Impact;
+    font-size: 16px;
+    width: 300px;
+
+}
+
+.loginradios {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.submitbutton {
+    text-align: center;
+    background-image: linear-gradient(#ffa4f9, #80c6ff);
+    border-radius: 2px;
+    border-color: #ff8989;
+    box-shadow: inset 0 0 10px #ffffff;
+    font-weight: bold;
+    color: #b4001d;
+    margin: auto;
+}
+
+.submitdiv {
+    padding-top: 10px;
+    text-align: center;
+    color: #2442ab;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: impact;
+}
+
+.logininputfield {
+    text-align: center;
+    margin: auto;
+    background-image: linear-gradient(#ffa4f9, #80c6ff);
+    border-color: red;
+    box-shadow: inset 0 0 10px #000000;
+    font-weight: bold;
+    color: #b4001d;
+    width: 300px;
+}
+
+.errorthing {
+    text-align: center;
+    color: red;
+    font-family: Impact;
+    font-size: 20px;
+    padding-top: 10px;
+
+}
+
+.loginwordnexttofield {
+    color: #2442ab;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: impact;
+    margin-bottom: 3px;
+}
+
+.centerlogin {
+    margin: auto;
+    text-align: center;
+}
+
+.deletebuttonbottom {
+    font-size: 16px;
+    margin-bottom: 5px;
+    background-image: linear-gradient(#ffa4f9, #80c6ff);
+    text-align: center;
+
+}
+.brewerydetailbottombuttons {
+    padding-top: 10px;
+}
+
+.individuallogincontainer {
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-align: center;
+}

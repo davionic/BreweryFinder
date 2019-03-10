@@ -1,0 +1,55 @@
+﻿@model NewBeerViewModel
+
+<h4 class="title">New Beer</h4>
+<hr />
+<div>
+    <div class="formcontainer">
+        <form asp-action="BreweryDetail" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="BreweryID" class="form-control" />
+                <span asp-validation-for="BreweryID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Beer Name:</label>
+                <input asp-for="Name" class="form-control inputfield" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label">Beer Type:</label>
+                <input asp-for="Type" class="form-control inputfield" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ABV" class="control-label">ABV %</label>
+                <input asp-for="ABV" class="form-control inputfield" />
+                <span asp-validation-for="ABV" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IBU" class="control-label">IBU Number:</label>
+                <input asp-for="IBU" class="form-control inputfield" />
+                <span asp-validation-for="IBU" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HintsOf" class="control-label">Hints of... </label>
+                <input asp-for="HintsOf" class="form-control inputfield" />
+                <span asp-validation-for="HintsOf" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label">Beer Description:</label>
+                <input asp-for="Description" class="form-control inputfield" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,59 @@
+﻿@model BreweryDetailViewModel
+
+@{
+    ViewData["Title"] = "UpdateBrewery";
+}
+
+
+<h2 class="title">Update Brewery - @Model.ThisBrewery.Name</h2>
+    <div class="formcontainer">
+        <form asp-action="BreweryUpdate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="ThisBrewery.ID" class="form-control" />
+                <span asp-validation-for="ThisBrewery.ID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThisBrewery.Name" class="control-label"></label>
+                <input asp-for="ThisBrewery.Name" class="form-control inputfield" />
+                <span asp-validation-for="ThisBrewery.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThisBrewery.Address" class="control-label"></label>
+                <input asp-for="ThisBrewery.Address" class="form-control inputfield" />
+                <span asp-validation-for="ThisBrewery.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThisBrewery.City" class="control-label"></label>
+                <input asp-for="ThisBrewery.City" class="form-control inputfield" />
+                <span asp-validation-for="ThisBrewery.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThisBrewery.State" class="control-label"></label>
+                <input asp-for="ThisBrewery.State" class="form-control inputfield" />
+                <span asp-validation-for="ThisBrewery.State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThisBrewery.PhoneNumber" class="control-label"></label>
+                <input asp-for="ThisBrewery.PhoneNumber" class="form-control inputfield" />
+                <span asp-validation-for="ThisBrewery.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThisBrewery.Hours" class="control-label"></label>
+                <input asp-for="ThisBrewery.Hours" class="form-control inputfield" />
+                <span asp-validation-for="ThisBrewery.Hours" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ThisBrewery.Description" class="control-label"></label>
+                <input asp-for="ThisBrewery.Description" class="form-control inputfield" />
+                <span asp-validation-for="ThisBrewery.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,94 @@
+﻿@model BreweryDetailViewModel
+
+@{
+    ViewData["Title"] = "BreweryDetail";
+}
+
+<div class="brewerydetailtopbox">
+    <h2 class="title">@Model.ThisBrewery.Name</h2>
+    <div class="brewerydeets">
+        <p>Address: @Model.ThisBrewery.Address</p>
+        <p>Phone: @Model.ThisBrewery.PhoneNumber</p>
+        <p>Hours: @Model.ThisBrewery.Hours</p>
+    </div>
+
+    <p class="brewerydescription">@Model.ThisBrewery.Description</p>
+</div>
+
+<h3 class="titlebar">Beer List</h3>
+<div class="beerlist">
+    @foreach (Beer beer in Model.ThisBrewery.Beers)
+    {
+        <div class="beer">
+            <div>
+
+                <a asp-controller="Home" asp-action="BeerDetail" asp-route-beerId="@beer.ID">
+                    <div class="beername">@beer.Name</div>
+                </a>
+            </div>
+            <div class="beerpreview">
+                <div>@beer.Type</div>
+                <div>@beer.ABV% ABV</div>
+                @if (beer.AverageRating == 0)
+                {
+                    <p>No reviews</p>
+                }
+                else
+                {
+                    <p>
+                        <div class="ratingtext">
+                            Average Rating
+                        </div>
+                        <img class="hopspicsmall" src="~/images/@(beer.AverageRating)hop.png" />
+                    </p>
+                }
+                @if (Model.IsBrewerLoggedIn == true || Model.IsAdminLoggedIn == true)
+                {
+                    <form asp-controller="Home" asp-action="DeleteBeer" onclick="return confirm('Are you sure you wish to delete this beer?');" asp-method="post">
+                        <input asp-for="BeerID" type="hidden" value="@beer.ID" />
+                        <input asp-for="ThisBrewery.ID" type="hidden" value="@Model.ThisBrewery.ID" />
+                        <button type="submit" class="deletebutton">Delete Beer</button>
+                    </form>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+<div class="brewerydetailbottombuttons">
+    @if (Model.IsBrewerLoggedIn == true || Model.IsAdminLoggedIn == true)
+    {
+        <div class="individuallogincontainer">
+            <form asp-controller="Home" asp-action="addBeer" asp-route-breweryId="@Model.ThisBrewery.ID">
+                <button type="submit" class="deletebuttonbottom">Add A Beer</button>
+            </form>
+        </div>
+
+        <div class="individuallogincontainer">
+            <form asp-controller="Home" asp-action="UpdateBrewery">
+                <input asp-for="ThisBrewery.ID" type="hidden" value="@Model.ThisBrewery.ID" />
+                <input asp-for="ThisBrewery.Name" type="hidden" value="@Model.ThisBrewery.Name" />
+                <input asp-for="ThisBrewery.Address" type="hidden" value="@Model.ThisBrewery.Address" />
+                <input asp-for="ThisBrewery.City" type="hidden" value="@Model.ThisBrewery.City" />
+                <input asp-for="ThisBrewery.State" type="hidden" value="@Model.ThisBrewery.State" />
+                <input asp-for="ThisBrewery.PhoneNumber" type="hidden" value="@Model.ThisBrewery.PhoneNumber" />
+                <input asp-for="ThisBrewery.Hours" type="hidden" value="@Model.ThisBrewery.Hours" />
+                <input asp-for="ThisBrewery.Description" type="hidden" value="@Model.ThisBrewery.Description" />
+                <button type="submit" class="deletebuttonbottom">Update Brewery</button>
+            </form>
+        </div>
+    }
+
+        <div class="individuallogincontainer">
+            @if (Model.IsAdminLoggedIn)
+            {
+            <form asp-controller="Home" asp-action="NewBrewer" asp-route-breweryId="@Model.ThisBrewery.ID">
+                <input asp-for="ThisBrewery.ID" type="hidden" value="@Model.ThisBrewery.ID" />
+                <button type="submit" class="deletebuttonbottom">New Brewer Account</button>
+            </form>
+                <form asp-controller="Home" asp-action="DeleteBrewery" onclick="return confirm('Are you sure you wish to delete this brewery?');" asp-route-breweryId="@Model.ThisBrewery.ID">
+                    <button type="submit" class="deletebuttonbottom">Delete Brewery</button>
+                </form>
+            }
+        </div>
+</div>
