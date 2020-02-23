@@ -1,6 +1,6 @@
 # BreweryFinder
 
-ASP.NET MVC site using a SQL database, session, and razer pages.
+ASP.NET MVC site using a SQL database, session, and razor pages.
 
 A beer reviewing site where brewers can create an account and list their beers to be reviewed. 
 Users can post reviews for their beers for each different brewery.
